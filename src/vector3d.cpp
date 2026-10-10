@@ -69,6 +69,32 @@ vector3d vector3d::subtract_vectors(vector3d vector2) {
 
 }
 
+vector3d vector3d::scalar_multiplication(double scalar) {
+
+    //Return a new vector3d object that is the current vector multiplied by a scalar value
+
+    return vector3d(this->i * scalar, this->j * scalar, this->k * scalar);
+
+}
+
+double vector3d::angle_between_vectors(vector3d vector2) {
+
+    //Return a scalar as a double that is the angle (in radians) between the current vector and the input vector
+
+    return acos(this->dot_product(vector2) / (this->get_magnitude() * vector2.get_magnitude()));
+    
+}
+
+vector3d vector3d::projection(vector3d vector2) {
+
+    //Return the projection of vector2 onto the current vector as a new vector3d object
+
+    double scalar = (this->dot_product(vector2) / pow(this->get_magnitude(), 2));
+
+    return vector3d(this->scalar_multiplication(scalar));
+    
+}
+
 double vector3d::dot_product(vector3d vector2) {
 
     //Get the dot product of the current vector and the input vector returned as a double

@@ -27,6 +27,10 @@ class vector3d {
 
         vector3d add_vectors(vector3d vector2);
         vector3d subtract_vectors(vector3d vector2);
+        vector3d scalar_multiplication(double scalar);
+        double angle_between_vectors(vector3d vector2);
+
+        vector3d projection(vector3d vector2);
 		double dot_product(vector3d vector2);
         vector3d cross_product(vector3d vector2);
         double scalar_triple_product(vector3d vector2, vector3d vector3);
