@@ -1,0 +1,1 @@
+This is just for practice, and to test out what was learned in Calc 3 with vector math.
