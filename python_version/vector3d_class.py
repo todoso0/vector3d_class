@@ -36,27 +36,27 @@ class vector3d:
 		#Return the result as a list of vector components
 
 		magnitude = self.get_magnitude()
-		return [self.i / magnitude, self.j / magnitude, self.k / magnitude]
+		return vector3d(self.i / magnitude, self.j / magnitude, self.k / magnitude)
 
 	def add_vectors(self, vector2):
 
 		#Add the current vector to an input vector
 		#Return the result as a list of vector components
 
-		return [self.i + vector2.i, self.j + vector2.j, self.k + vector2.k] 
+		return vector3d(self.i + vector2.i, self.j + vector2.j, self.k + vector2.k)
 
 	def subtract_vectors(self, vector2):
 
 		#Subtract the input vector from the current vector
 		#Return the result as a list of vector components
 
-		return [self.i - vector2.i, self.j - vector2.j, self.k - vector2.k] 
+		return vector3d(self.i - vector2.i, self.j - vector2.j, self.k - vector2.k)
 
 	def scalar_multiplication(self, scalar):
 
 		#Return a list of vector components that is the current vector multiplied by a scalar value
 		
-		return [self.i * scalar, self.j * scalar, self.k * scalar]
+		return vector3d(self.i * scalar, self.j * scalar, self.k * scalar)
 
 	def angle_between_vectors(self, vector2):
 
@@ -70,9 +70,9 @@ class vector3d:
 		
 		scalar = (self.dot_product(vector2) / math.pow(self.get_magnitude(), 2))
 		
-		multiplied_vector = vector3d(*self.scalar_multiplication(scalar))
+		multiplied_vector = self.scalar_multiplication(scalar)
 
-		return [multiplied_vector.i, multiplied_vector.j, multiplied_vector.k]
+		return vector3d(multiplied_vector.i, multiplied_vector.j, multiplied_vector.k)
 		
 	def dot_product(self, vector2):
 
@@ -89,13 +89,13 @@ class vector3d:
 		new_j = -(self.i * vector2.k - self.k * vector2.i)
 		new_k = self.i * vector2.j - self.j * vector2.i
 		
-		return [new_i, new_j, new_k]
+		return vector3d(new_i, new_j, new_k)
 
 	def scalar_triple_product(self, vector2, vector3):
 
 		#Compute the dot product of the current vector with the cross product of the 2 input vectors
 		#Return the resulting scalar value as a single value
 		
-		cross_product_vector = vector3d(*vector2.cross_product(vector3))
+		cross_product_vector = vector2.cross_product(vector3)
 		
 		return self.dot_product(cross_product_vector)
